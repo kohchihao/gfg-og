@@ -11,9 +11,7 @@ export default function Home() {
         height="630px"
         width="1200px"
         backgroundColor="gray.50"
-      >
-        <WishMetaCard />
-      </Flex>
+      ></Flex>
     </ChakraProvider>
   );
 }
