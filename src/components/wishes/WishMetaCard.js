@@ -48,15 +48,25 @@ const WishCardHeader = ({ name, profileImageUrl }) => {
       alignItems="center"
       width="100%"
     >
-      <Img
-        borderRadius="full"
-        objectFit="cover"
-        float="left"
-        height="40px"
-        width="40px"
-        name={name}
-        src={profileImageUrl?.small || profileImageUrl?.raw}
-      />
+      {profileImageUrl.raw ? (
+        <Img
+          borderRadius="full"
+          objectFit="cover"
+          float="left"
+          height="40px"
+          width="40px"
+          name={name}
+          src={profileImageUrl?.small || profileImageUrl?.raw}
+        />
+      ) : (
+        <Avatar
+          height="40px"
+          width="40px"
+          name={name}
+          src={profileImageUrl?.small || profileImageUrl?.raw}
+        />
+      )}
+
       <Text
         color="black"
         float="left"
