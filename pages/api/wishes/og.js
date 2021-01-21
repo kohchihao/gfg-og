@@ -27,7 +27,7 @@ export default async (req, res) => {
       html,
       width: DefaultImageSize.width,
       height: DefaultImageSize.height,
-      isDev: true,
+      isDev: !process.env.IS_PRODUCTION,
     });
 
     res.statusCode = 200;
