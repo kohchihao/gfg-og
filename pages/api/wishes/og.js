@@ -1,8 +1,7 @@
 import { getScreenshot } from '@lib/og/chromeApi';
 import { getHtml } from '@lib/og/template';
 import { renderToString } from 'react-dom/server';
-import { firestore } from '@utils/admin-firebase';
-
+import { db } from '@utils/firebase';
 /**
  * Most common OG image size
  */
@@ -18,7 +17,7 @@ export default async (req, res) => {
       throw new Error('Missing query param');
     }
 
-    const snapshot = await firestore.collection('wishes').doc(id).get();
+    const snapshot = await db.collection('wishes').doc(id).get();
     if (!snapshot.exists) {
       throw new Error('Wish does not exists');
     }
